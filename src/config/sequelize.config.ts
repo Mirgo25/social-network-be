@@ -7,7 +7,7 @@ export const getSequelizeConfig = (configService: ConfigService): SequelizeModul
   port: +configService.get('DB_PORT'),
   username: configService.get('DB_USER'),
   password: configService.get('DB_PASSWORD'),
-  database: configService.get('DATABASE'),
+  database: configService.get('DB_NAME'),
   autoLoadModels: true,
   synchronize: false,
 });
