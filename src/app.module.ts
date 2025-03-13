@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { getEnvPath } from './env';
+import { UsersModule } from './routes/users/users.module';
 
 @Module({
   imports: [
@@ -25,6 +26,7 @@ import { getEnvPath } from './env';
         logger: 'simple-console',
       }),
     }),
+    UsersModule,
   ],
   controllers: [AppController],
   providers: [AppService],
