@@ -5,6 +5,7 @@ import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { getEnvPath } from './env';
 import { UsersModule } from './routes/users/users.module';
+import { User } from './database/entities/user.entity';
 
 @Module({
   imports: [
@@ -20,7 +21,7 @@ import { UsersModule } from './routes/users/users.module';
         password: configService.getOrThrow<string>('DB_PASSWORD'),
         database: configService.getOrThrow<string>('DB_NAME'),
         synchronize: false,
-        entities: [],
+        entities: [User],
         migrations: ['database/migrations/*.{ts,js}'],
         logging: process.env.NODE_ENV !== 'production',
         logger: 'simple-console',
