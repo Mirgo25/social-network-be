@@ -6,6 +6,7 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { getEnvPath } from './env';
 import { UsersModule } from './routes/users/users.module';
 import { User } from './database/entities/user.entity';
+import { AuthModule } from './routes/auth/auth.module';
 
 @Module({
   imports: [
@@ -28,6 +29,7 @@ import { User } from './database/entities/user.entity';
       }),
     }),
     UsersModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
